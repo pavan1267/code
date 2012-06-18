@@ -23,35 +23,17 @@ void insert( NODE **root, NODE *cur)
 
 
 }
-
-int height(NODE *root)
-{
-	if(root == NULL)
-		return 0;
-
-	int left = height(root->left) + 1;;
-	int right = height(root->right) + 1;
-
-	if( left>right) return left;
-
-	return right;
-}
-	
-
-
-int find_diameter(NODE *root)
+int find_diameter(NODE *root, int *height )
 {
 	int left_height = 0, right_height = 0;
 	if(root == NULL)
 	{
 		return 0;
 	}
-
-	left_height =  height(root->left);
-	right_height = height(root->right);
 	int ld=0, rd=0;
-	ld = find_diameter(root->left);
-	rd = find_diameter(root->right);
+	ld = find_diameter(root->left, &left_height);
+	rd = find_diameter(root->right, &right_height);
+	*height = max( ld, rd) + 1;
 	return ( max(left_height + right_height + 1, max(ld, rd)));
 
 }
@@ -77,8 +59,8 @@ int main(int argc, char * argv[])
 		insert( &root, cur );
 	}
 	
-
-	int diameter = find_diameter(root);
+	int height = 0;
+	int diameter = find_diameter(root, &height);
 
 	cout<<"\nHeight= "<<diameter<<endl;
 
