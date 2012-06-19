@@ -12,9 +12,18 @@ void left(NODE *root)
 	if( root->left != NULL)
 	{
 		cout<<" "<<root->left->data;
-		root->left->visited = 1;
+		root->left->visited = 1;	
+		left(root->left);
+
+
 	}
-	left(root->left);
+	else if(root->right != NULL)
+	{
+		cout<<" "<<root->right->data;
+		root->right->visited = 1;
+		left(root->right);
+	}
+		
 	return;
 
 }
