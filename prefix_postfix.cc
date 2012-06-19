@@ -2,7 +2,6 @@
 using namespace std;
 
 int n;
-int ret[10];
 
 struct NODE
 {
@@ -32,12 +31,7 @@ NODE* build_tree(int prefix[], int postfix[], int pre_start, int pre_end, int po
 	node->right = NULL;
 	if( ((pre_start == pre_end) && ( pos_start == pos_end)) || (pre_start > pre_end) || (pos_start > pos_end))
 	{
-		if( ret[node->data] == 0)
-		{
-			ret[node->data] = 1;
 			return node;
-		}
-		return NULL; 
 	}
 
 	int right_child = postfix[pos_end -1];
