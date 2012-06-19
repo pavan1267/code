@@ -16,7 +16,7 @@ void insert( NODE **root, NODE *cur)
 		*root = cur;
 		return;
 	}
-	if( (*root)->data < cur->data )
+	if( cur->data < (*root)->data)
 		insert(&(*root)->left, cur);
 	else
 		insert(&(*root)->right, cur);
