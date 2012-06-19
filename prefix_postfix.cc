@@ -25,7 +25,6 @@ NODE* build_tree(int prefix[], int postfix[], int pre_start, int pre_end, int po
 {
 
 	NODE* node = new NODE;
-
 	int root = postfix[pos_end];
 	node->data = root;
 	node->left = NULL;
