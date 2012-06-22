@@ -9,7 +9,7 @@ struct NODE
 	NODE *link;
 };
 
-NODE *list1 =NULL, *list2 =NULL, *last1= NULL, *last2=NULL, *list3=NULL, *last3=NULL;
+NODE *list1, *list2, *last1, *last2, *list3, *last3;
 void form_stack(stack <int>*s, int n)
 {
 	while(n!=0)
